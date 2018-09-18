@@ -16,6 +16,14 @@ class BooksApp extends React.Component {
     })
   }
 
+
+  updateShelf = (book, shelf) => {
+    BooksAPI.update(book, shelf)
+
+    BooksAPI.getAll().then(books => {
+      this.setState({ books })
+    })
+  }
   // removeContact = (contact) => {
   //   this.setState(state =>({
   //       contacts: state.contacts.filter(
@@ -37,7 +45,8 @@ class BooksApp extends React.Component {
     return (
       <div className="app">
         <Search />
-        <Main  books={this.state.books}/>
+        <Main  books={this.state.books}
+        updateShelf= {this.updateShelf}/>
       </div>
     )
   }
