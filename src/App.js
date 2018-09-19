@@ -12,7 +12,7 @@ class BooksApp extends React.Component {
 
   componentDidMount() {
     BooksAPI.getAll().then(books => {
-      this.setState({ books })
+      this.setState({ books: books })
     })
   }
 
@@ -21,32 +21,17 @@ class BooksApp extends React.Component {
     BooksAPI.update(book, shelf)
 
     BooksAPI.getAll().then(books => {
-      this.setState({ books })
+      this.setState({ books: books })
     })
   }
-  // removeContact = (contact) => {
-  //   this.setState(state =>({
-  //       contacts: state.contacts.filter(
-  //         c => c.id !== contact.id)
-  //   }))
-  //   ContactsAPI.remove(contact)
-  // }
-
-  // createContact(contact){
-  //   ContactsAPI.create(contact).then(contact => {
-  //     this.setState(state => ({
-  //       contacts:state.contacts.concat([ contact ])
-  //     }))
-  //   })
-  //}
 
   render() {
-    console.log(this.state.books);
+    // console.log(this.state.books);
     return (
       <div className="app">
         <Search />
-        <Main  books={this.state.books}
-        updateShelf= {this.updateShelf}/>
+        {/**<Main  books={this.state.books}
+    updateShelf= {this.updateShelf}/>**/}
       </div>
     )
   }
