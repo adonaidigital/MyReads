@@ -9,8 +9,7 @@ class Search extends Component {
     }
  
     updateQuery = (query) => {
-        this.setState({ 
-        query: query })
+        this.setState({ query: query })
         this.updateResults(query)
         }
 
@@ -24,8 +23,7 @@ class Search extends Component {
                 }
             })       
         } else {
-            this.setState({ Results: [] })
-                
+            this.setState({ Results: [] })       
         }
     }   
 
@@ -47,7 +45,8 @@ class Search extends Component {
           <ol className="books-grid">
           {this.state.Results.map(Results =>(
             <li key={Results.id}>
-            <Book book={Results} />
+            <Book book={Results} 
+            updateShelf={this.props.updateShelf} />
             </li>
             ))
           }

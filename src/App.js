@@ -26,12 +26,11 @@ class BooksApp extends React.Component {
   }
 
   render() {
-    // console.log(this.state.books);
     return (
       <div className="app">
-        <Search />
-        {/**<Main  books={this.state.books}
-    updateShelf= {this.updateShelf}/>**/}
+        <Search updateShelf= {this.updateShelf}/>
+        <Main  books={this.state.books}
+         updateShelf= {this.updateShelf}/>
       </div>
     )
   }
