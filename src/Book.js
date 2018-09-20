@@ -12,7 +12,7 @@ render() {
             <div className="book-cover" style={{ width: 128, height: 193, 
                 backgroundImage: `url("${bookDisplayed}")`}}></div>
             <div className="book-shelf-changer">
-                <select value= {this.props.book.shelf} 
+                <select value= {this.props.currentShelf} 
                 onChange={(e) => this.props.updateShelf(this.props.book, e.target.value)}>
                 <option value="move" disabled>Move to...</option>
                 <option value="currentlyReading">Currently Reading</option>
