@@ -17,24 +17,34 @@ export default class BooksApp extends React.Component {
     this.setState({ books: books })
   })
 }
-  updateShelf = (book, shelf) =>{
-    BooksAPI.update(book, shelf)
+   //this updates based on the current shelf
+  updateShelf = (book, currentShelf) =>{
+    BooksAPI.update(book, currentShelf)
     BooksAPI.getAll().then(books => {
     this.setState({ books: books })
     })
   }
   render() {
+    const { books } = this.state;
     return (
       <div className="app">
       <Route exact path='/' render={() => (
-        <BookPage  books={this.state.books}
+        <BookPage books = {books}
                updateShelf= {this.updateShelf}/>
         )} />
       <Route exact path='/Search' render={() => (
         <Search updateShelf= {this.updateShelf} 
-                books= {this.state.books} />
+                books = {books} />
         )} />      
       </div>
     )
   }
 }
+
+/* Referenced
+https://css-tricks.com/understanding-react-setstate/ 
+Maeva Nap walkthrough on MyReads --https://www.youtube.com/watch?v=i6L2jLHV9j8
+Rodrick Bloomfield walkthrough on myReads --https://drive.google.com/drive/folders/1QpvhhOn_FzgB8k7TBM1jolOXdpbmbOdb
+https://reactjs.org/docs/react-component.html
+
+*/

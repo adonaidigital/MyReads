@@ -13,17 +13,17 @@ export default class BookPage extends Component {
         </div>
         <div className="list-books-content">
             <div>
-            
             <div className="bookshelf">
                 <h2 className="bookshelf-title">Currently Reading</h2>
                 <div className="bookshelf-books">
                     <ol className="books-grid">
+                    {/*the .map and .filter return books for each book based on the current shelf */}
                     {books.filter(book => book.shelf === 'currentlyReading')
                           .map(book => (
                         <li key={book.id}>
                             <Book book ={book}
                             updateShelf={updateShelf}
-                            currentShelf='currentlyReading'  
+                            currentShelf='currentlyReading' 
                             />
                         </li>
                         ))
@@ -36,12 +36,13 @@ export default class BookPage extends Component {
         <h2 className="bookshelf-title">Want to Read</h2>
         <div className="bookshelf-books">
             <ol className="books-grid">
+            {/*the .map and .filter return books for each book based on the current shelf */}
             {books.filter(book => book.shelf === 'wantToRead')
                 .map(book => (
                 <li key={book.id}>
                     <Book book ={book} 
                     updateShelf={updateShelf}
-                    currentShelf='wantToRead'  
+                    currentShelf='wantToRead'   
                     />
                  </li>
                   ))
@@ -54,12 +55,13 @@ export default class BookPage extends Component {
                 <h2 className="bookshelf-title">Read</h2>
                 <div className="bookshelf-books">
                     <ol className="books-grid">
+                     {/*the .map and .filter return books for each book based on the current shelf */}
                     {books.filter(book => book.shelf === 'read')
                         .map(book => (
                         <li key={book.id}>
                             <Book book ={book} 
                             updateShelf={updateShelf}
-                            currentShelf='read' 
+                            currentShelf= 'read'
                             />
                         </li>
                         ))
@@ -73,7 +75,6 @@ export default class BookPage extends Component {
             <Link to='/search'>Add a book</Link>
         </div>
         </div>
-    
     )
   }
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 export default class Book extends Component {
 render() {
     const { updateShelf, book } = this.props;
-
+     //this accounts for the cover images
     const coverImage = book.imageLinks ? book.imageLinks.thumbnail : '';
 
     return (
@@ -24,8 +24,7 @@ render() {
         </div>  
             <div className="book-title">{book.title}</div>
             <div className="book-authors">{book.authors}</div>
-    </div>
-               
+    </div>          
      )
   }
 }

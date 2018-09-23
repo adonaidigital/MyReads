@@ -31,7 +31,7 @@ export default class Search extends Component {
     render() {
         const { books, updateShelf } = this.props;
         const { Results, query } = this.state;
-        
+
        return (
         <div className="search-books">
             <div className="search-books-bar">
@@ -47,6 +47,7 @@ export default class Search extends Component {
         </div>
         <div className="search-books-Results">
           <ol className="books-grid">
+          {/* this is to return the books search while comparing it with its current shelf*/}
           {Results.map(Results =>{
             let shelf ='none'
             books.map(book =>(
