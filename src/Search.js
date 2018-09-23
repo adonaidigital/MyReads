@@ -3,7 +3,7 @@ import * as BooksAPI from './BooksAPI'
 import { Link } from 'react-router-dom'
 import Book from './Book'
 
-class Search extends Component {
+export default class Search extends Component {
     state = {
         query: '',
         Results: []
@@ -29,13 +29,16 @@ class Search extends Component {
     }   
 
     render() {
+        const { books, updateShelf } = this.props;
+        const { Results, query } = this.state;
+        
        return (
         <div className="search-books">
             <div className="search-books-bar">
             <Link className="close-search" to='/'>Close</Link>         
             <div className="search-books-input-wrapper">
                 <input 
-                    value={this.state.query} 
+                    value={query} 
                     type="text" 
                     placeholder="Search by title or author"
                     onChange={(e) => this.updateQuery(e.target.value)}
@@ -44,15 +47,15 @@ class Search extends Component {
         </div>
         <div className="search-books-Results">
           <ol className="books-grid">
-          {this.state.Results.map(Results =>{
+          {Results.map(Results =>{
             let shelf ='none'
-            this.props.books.map(book =>(
+            books.map(book =>(
                 book.id === Results.id ? shelf =book.shelf: ''
             ))
             return (
                 <li key={Results.id}>
                     <Book book={Results} 
-                    updateShelf={this.props.updateShelf}
+                    updateShelf={updateShelf}
                     currentShelf={shelf}
                     />
                 </li>
@@ -66,4 +69,11 @@ class Search extends Component {
     }
 }
 
-export default Search;
+
+/* Referenced
+https://css-tricks.com/understanding-react-setstate/ 
+Maeva Nap walkthrough on MyReads --https://www.youtube.com/watch?v=i6L2jLHV9j8
+Rodrick Bloomfield walkthrough on myReads --https://drive.google.com/drive/folders/1QpvhhOn_FzgB8k7TBM1jolOXdpbmbOdb
+https://reactjs.org/docs/react-component.html
+
+*/
