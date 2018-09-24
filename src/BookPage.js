@@ -5,6 +5,7 @@ import Book from './Book'
 export default class BookPage extends Component {
  render() {
     const { updateShelf , books} = this.props;
+    const { currentShelf } = ['currentlyReading', 'wantToRead', 'read']
     
     return(
         <div className="list-books">
@@ -23,18 +24,17 @@ export default class BookPage extends Component {
                         <li key={book.id}>
                             <Book book ={book}
                             updateShelf={updateShelf}
-                            currentShelf='currentlyReading' 
+                            currentShelf= {currentShelf}
                             />
                         </li>
                         ))
                         }
                     </ol> 
                 </div>
-                
             </div>
         <div className="bookshelf">
         <h2 className="bookshelf-title">Want to Read</h2>
-        <div className="bookshelf-books">
+          <div className="bookshelf-books">
             <ol className="books-grid">
             {/*the .map and .filter return books for each book based on the current shelf */}
             {books.filter(book => book.shelf === 'wantToRead')
@@ -49,8 +49,7 @@ export default class BookPage extends Component {
                 }
             </ol>
         </div>
-    </div>
-        
+            </div>
             <div className="bookshelf">
                 <h2 className="bookshelf-title">Read</h2>
                 <div className="bookshelf-books">
@@ -71,6 +70,7 @@ export default class BookPage extends Component {
              </div>
             </div>
         </div>
+        
         <div className="open-search">
             <Link to='/search'>Add a book</Link>
         </div>
