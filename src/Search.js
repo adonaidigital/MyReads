@@ -10,7 +10,7 @@ export default class Search extends Component {
     }
  
     updateQuery = (query) => {
-        this.setState({ query: query })
+        this.setState({ query })
         this.updateResults(query)
         }
 
@@ -20,7 +20,7 @@ export default class Search extends Component {
                 if (Results.error){
                     this.setState({ Results: [] })  
                 }else{
-                    this.setState({ Results: Results })
+                    this.setState({ Results })
                 }
             })       
         } else {

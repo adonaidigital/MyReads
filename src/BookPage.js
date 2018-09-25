@@ -5,7 +5,7 @@ import Book from './Book'
 export default class BookPage extends Component {
  render() {
     const { updateShelf , books} = this.props;
-    const { currentShelf } = ['currentlyReading', 'wantToRead', 'read']
+    const { currentShelf } = ['currentlyReading', 'wantToRead', 'read'];
     
     return(
         <div className="list-books">

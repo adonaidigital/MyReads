@@ -1,6 +1,6 @@
 import React from 'react'
-import * as BooksAPI from './BooksAPI'
 import { Route} from 'react-router-dom'
+import * as BooksAPI from './BooksAPI'
 import './App.css'
 import BookPage from './BookPage' 
 import Search from './Search' 
@@ -13,17 +13,23 @@ export default class BooksApp extends React.Component {
  
   //to render all books and to make changes to the state of books
   componentDidMount()
-  {BooksAPI.getAll().then(books => {
-    this.setState({ books: books })
-  })
+    {BooksAPI.getAll().then(books => {
+      this.setState({ books })
+    })
 }
    //this updates based on the current shelf
   updateShelf = (book, currentShelf) =>{
-    BooksAPI.update(book, currentShelf)
-    BooksAPI.getAll().then(books => {
-    this.setState({ books: books })
-    })
-  }
+      BooksAPI.update(book, currentShelf).then(() =>{
+        this.updateResults();
+      }) 
+    }
+      updateResults(){
+      BooksAPI.getAll().then(books => {
+        this.setState({ books })
+      })
+    }
+  
+  
   render() {
     const { books } = this.state;
     return (
