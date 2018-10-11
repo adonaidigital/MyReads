@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
-import * as BooksAPI from './BooksAPI'
-import { Link } from 'react-router-dom'
-import Book from './Book'
+    import React, { Component } from 'react'
+    import { Link } from 'react-router-dom'
+    import * as BooksAPI from './BooksAPI'
+    import Book from './Book'
 
 export default class Search extends Component {
+
     state = {
         query: '',
         Results: []
@@ -69,7 +70,6 @@ export default class Search extends Component {
        )
     }
 }
-
 
 /* Referenced
 https://css-tricks.com/understanding-react-setstate/ 
